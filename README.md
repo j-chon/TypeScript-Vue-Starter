@@ -53,6 +53,7 @@ Ensure TypeScript, Webpack, Vue and the necessary loaders are installed.
 
 ```sh
 npm install --save-dev typescript webpack ts-loader css-loader vue vue-loader vue-template-compiler
+npm install -S vue-property-decorator
 ```
 
 Webpack is a tool that will bundle your code and optionally all of its dependencies into a single `.js` file.
