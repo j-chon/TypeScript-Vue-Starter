@@ -9,32 +9,35 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+    // vue-property-decoratorをインポートすることで、Typescriptでコンポーネントを記述することができる。
+    import {Component, Prop, Vue} from "vue-property-decorator";
+    // import {Component, Prop, Vue} from "vue-property-decorator";
 
-@Component
-export default class HelloDecorator extends Vue {
-    @Prop() name!: string;
-    @Prop() initialEnthusiasm!: number;
+    @Component
+    export default class HelloDecorator extends Vue {
+        @Prop() name!: string;
+        @Prop() initialEnthusiasm!: number;
 
-    enthusiasm = this.initialEnthusiasm;
+        enthusiasm = this.initialEnthusiasm;
 
-    increment() {
-        this.enthusiasm++;
-    }
-    decrement() {
-        if (this.enthusiasm > 1) {
-            this.enthusiasm--;
+        increment() {
+            this.enthusiasm++;
+        }
+
+        decrement() {
+            if (this.enthusiasm > 1) {
+                this.enthusiasm--;
+            }
+        }
+
+        get exclamationMarks(): string {
+            return Array(this.enthusiasm + 1).join('!');
         }
     }
-
-    get exclamationMarks(): string {
-        return Array(this.enthusiasm + 1).join('!');
-    }
-}
 </script>
 
 <style>
-.greeting {
-    font-size: 20px;
-}
+    .greeting {
+        font-size: 20px;
+    }
 </style>
